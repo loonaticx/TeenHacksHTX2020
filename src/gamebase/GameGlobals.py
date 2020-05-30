@@ -1,5 +1,5 @@
 # https://github.com/LittleNed/ToontownStride/blob/master/toontown/toonbase/TTLocalizerEnglish.py
-from pandac.PandaModules import BitMask32, Vec4
+from panda3d.core import BitMask32, Vec4
 from src.gamebase import BitmaskGlobals
 #WallBitmask = BitMask32(16)
 

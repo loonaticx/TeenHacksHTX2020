@@ -1,5 +1,5 @@
 from direct.showbase import DirectObject
-# from pandac.PandaModules import WindowProperties
+# from panda3d.core import WindowProperties
 # from panda3d.core import CollisionHandlerPusher, CollisionNode, \
 #                         CollisionSphere
 from direct.task import Task

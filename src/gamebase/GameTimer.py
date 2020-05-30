@@ -4,7 +4,7 @@ from direct.gui.DirectGui import DirectFrame, DGG
 from direct.showbase.PythonUtil import bound
 from direct.task import Task
 from direct.task.TaskManagerGlobal import taskMgr
-from pandac.PandaModules import Vec4
+from panda3d.core import Vec4
 
 from src.gamebase import GameGlobals
 

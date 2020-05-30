@@ -3,7 +3,7 @@
 # https://github.com/LittleNed/ToontownStride/blob/master/toontown/toonbase/ToontownLoader.py
 from direct.showbase.ShowBase import ShowBase
 from direct.showbase.ShowBaseGlobal import globalClock
-from pandac.PandaModules import *
+from panda3d.core import *
 from direct.gui.DirectGui import *
 from direct.gui import DirectGuiGlobals
 from panda3d.core import *
