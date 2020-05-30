@@ -4,10 +4,17 @@ from direct.gui.DirectButton import DirectButton
 from direct.gui.OnscreenImage import OnscreenImage, TransparencyAttrib
 from direct.showbase.ShowBase import ShowBase, loadPrcFile
 from src import ConfigManager
-from src.actor import Avatar
 from panda3d.core import *
 
 from src.gamebase import GameGlobals
+
+"""
+Controls:
+Use WASD to move camera, mouse to rotate it around.
+Use Q & E to adjust the roll of the camera, it's a bit finnicky.
+Currently, you're only able to just drive around the model.
+"""
+
 
 if __debug__:
     loadPrcFile('../config/Config.prc')

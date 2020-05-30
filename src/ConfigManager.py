@@ -1,7 +1,6 @@
 import json
 import os
 
-
 settingsDefault = '''{
     "settings":
     {
@@ -10,7 +9,6 @@ settingsDefault = '''{
     }
 }
 '''
-
 
 class ConfigManager:
     def __init__(self):
@@ -29,17 +27,3 @@ class ConfigManager:
     def loadSettings(self):
         with open('config/settings.json') as data:
             return json.load(data)
-
-#print(settings["settings"][0]['want-gay-ass-filters'])
-#rint (settings["settings"][0]['want-ambient-occlusion'])
-#print (settings["settings"][1]['value'])
-
-#print(settings["settings"])
-
-
-
-#generateColors()
-
-
-
-

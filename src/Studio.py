@@ -39,7 +39,5 @@ class Studio(ShowBase):
         self.chair.reparentTo(render)
         self.chair.place()
 
-
-
 app = Studio()
 app.run()
