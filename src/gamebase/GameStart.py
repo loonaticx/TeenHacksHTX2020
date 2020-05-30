@@ -8,7 +8,7 @@ from direct.gui.DirectGui import *
 from direct.gui import DirectGuiGlobals
 from panda3d.core import *
 
-if __dev__:
+if __debug__:
     loadPrcFile('../config/Config.prc')
 
 import time

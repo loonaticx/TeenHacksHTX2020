@@ -6,7 +6,7 @@ from src.battle import DirectCannon
 from src.gamebase import GameGlobals
 from src.world import GlobalArena
 
-if __dev__:
+if __debug__:
     loadPrcFile('../config/Config.prc')
 
 class Studio(ShowBase):

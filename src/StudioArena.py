@@ -4,7 +4,7 @@ from src.gamebase import GameGlobals
 from src.world import GlobalArena
 import builtins
 
-if __dev__:
+if __debug__:
     loadPrcFile('../config/Config.prc')
 
 class StudioArena(ShowBase):

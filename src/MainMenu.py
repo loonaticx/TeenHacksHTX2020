@@ -9,7 +9,7 @@ from panda3d.core import *
 
 from src.gamebase import GameGlobals
 
-if __dev__:
+if __debug__:
     loadPrcFile('../config/Config.prc')
     print(os.getcwd())
 
@@ -30,15 +30,16 @@ class MainMenu(ShowBase):
             print("Debug mode enabled!")
             self.accept('f4', base.oobe)
 
-            try:
-                from src.debug.OTPInjectorDev import Injector
-                self.injector = Injector()
-            except ImportError:
-                print("You don't have wxPython or psutil installed.")
-                print("You need them to use the injector!")
-            except:
-                import traceback
-                traceback.print_exc()
+            if __debug__:
+                try:
+                    from src.debug.OTPInjectorDev import Injector
+                    self.injector = Injector()
+                except ImportError:
+                    print("You don't have wxPython or psutil installed.")
+                    print("You need them to use the injector!")
+                except:
+                    import traceback
+                    traceback.print_exc()
 
     def loadConfig(self):
         conf = ConfigManager.ConfigManager()

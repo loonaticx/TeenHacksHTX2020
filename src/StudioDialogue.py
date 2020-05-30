@@ -4,7 +4,7 @@ from src.gamebase import GameGlobals
 from src.battle import Dialogue
 import builtins
 
-if __dev__:
+if __debug__:
     loadPrcFile('../config/Config.prc')
 
 class StudioDialogue(ShowBase):
