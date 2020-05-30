@@ -3,7 +3,9 @@ from direct.showbase.ShowBase import ShowBase, loadPrcFile
 from src.gamebase import GameGlobals
 from src.world import GlobalArena
 import builtins
-loadPrcFile('../config/Config.prc')
+
+if __dev__:
+    loadPrcFile('../config/Config.prc')
 
 class StudioArena(ShowBase):
     def __init__(self):

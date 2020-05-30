@@ -9,8 +9,9 @@ from panda3d.core import *
 
 from src.gamebase import GameGlobals
 
-loadPrcFile('../config/Config.prc')
-print(os.getcwd())
+if __dev__:
+    loadPrcFile('../config/Config.prc')
+    print(os.getcwd())
 
 class MainMenu(ShowBase):
     def __init__(self):

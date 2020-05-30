@@ -3,7 +3,9 @@ from direct.showbase.ShowBase import ShowBase, loadPrcFile
 from src.gamebase import GameGlobals
 from src.battle import Dialogue
 import builtins
-loadPrcFile('../config/Config.prc')
+
+if __dev__:
+    loadPrcFile('../config/Config.prc')
 
 class StudioDialogue(ShowBase):
     def __init__(self):

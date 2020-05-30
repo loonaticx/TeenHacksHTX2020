@@ -1,3 +1,4 @@
 from panda3d.core import loadPrcFile
 
-#loadPrcFile('../config/Config.prc')
+#if __dev__:
+#    loadPrcFile('../config/Config.prc')

@@ -7,8 +7,9 @@ from pandac.PandaModules import *
 from direct.gui.DirectGui import *
 from direct.gui import DirectGuiGlobals
 from panda3d.core import *
-loadPrcFile('../config/Config.prc')
 
+if __dev__:
+    loadPrcFile('../config/Config.prc')
 
 import time
 import sys

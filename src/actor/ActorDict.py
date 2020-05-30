@@ -1,7 +1,8 @@
 from panda3d.core import loadPrcFile
 from direct.actor.Actor import Actor
 
-loadPrcFile('../config/Config.prc')
+if __dev__:
+    loadPrcFile('../config/Config.prc')
 
 Phase3AnimList = (('neutral', 'neutral'), ('run', 'run'))
 Phase3_5AnimList = (('walk', 'walk'),
