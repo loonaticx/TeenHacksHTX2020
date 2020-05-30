@@ -2,6 +2,7 @@ from panda3d.core import Fog
 
 class FogManager():
     def __init__(self):
+        pass
 
     def loadFog(self, fogDensity):
         fog = Fog('distanceFog')
