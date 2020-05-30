@@ -26,7 +26,7 @@ class firstPerson():
     def mouseConfig(self, win, cam):
         base.disableMouse()
 
-        self.mouseLook = MouseLook.FirstPersonCamera(win, cam)
+        self.mouseLook = MouseLook.FirstPersonCamera(base, cam)
         self.mouseLook.start()
         base.accept("tab", self.mouseLook.start)
         base.accept("escape", self.mouseLook.stop)
