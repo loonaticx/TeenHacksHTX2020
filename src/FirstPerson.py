@@ -103,7 +103,7 @@ class World(DirectObject):
         if (dt > .20):
             return task.cont
 
-        if (base.mouseWatcherNode.hasMouse() == True):
+        if (base.mouseWatcherNode.hasMouse()):
             mpos = base.mouseWatcherNode.getMouse()
             base.camera.setP(mpos.getY() * 30)
             base.camera.setH(mpos.getX() * -50)

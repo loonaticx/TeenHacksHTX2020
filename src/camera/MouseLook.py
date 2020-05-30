@@ -1,7 +1,6 @@
 from direct.showbase import DirectObject
-# from panda3d.core import WindowProperties
 # from panda3d.core import CollisionHandlerPusher, CollisionNode, \
-#                         CollisionSphere
+#                          WindowProperties, CollisionSphere
 from direct.task import Task
 
 
@@ -84,13 +83,19 @@ class FirstPersonCamera(DirectObject.DirectObject):
         x = md.getX()
         y = md.getY()
 
+        # Camera pitch, roll
+        old_p = self.camera.getP()
+        old_r = self.camera.getR()
+        p = old_p
+        r = old_r
+
         if self.gameApp.win.movePointer(0, self.centX, self.centY):
             self.camera.setH(self.refNode, self.camera.getH(self.refNode)
                              - (x - self.centX) * self.sensX)
-            self.camera.setP(self.camera, self.camera.getP(self.camera)
-                             - (y - self.centY) * self.sensY)
+            p -= (y - self.centY) * self.sensY
 
-            # handle keys:
+        # handle keys:
+
         if self.forward == True:
             self.camera.setY(self.camera, self.camera.getY(self.camera)
                              + self.movSens * self.fast * dt)
@@ -110,11 +115,18 @@ class FirstPersonCamera(DirectObject.DirectObject):
             self.camera.setZ(self.refNode, self.camera.getZ(self.refNode)
                              - self.movSens * self.fast * dt)
         if self.rollLeft == True:
-            self.camera.setR(self.camera, self.camera.getR(self.camera)
-                             - self.rollSens * dt)
+            r -= self.rollSens * dt
         if self.rollRight == True:
-            self.camera.setR(self.camera, self.camera.getR(self.camera)
-                             + self.rollSens * dt)
+            r += self.rollSens * dt
+
+        # Limit camera pitch and roll
+        if p != old_p:
+            p = min(25, max(-25, p))
+            self.camera.setP(p)
+
+        if r != old_r:
+            r = min(10, max(-10, r))
+            self.camera.setR(r)
 
         self.time = task.time
         return Task.cont
