@@ -57,32 +57,12 @@ class MainMenu(ShowBase):
 
     def loadGame(self):
         print("Loading game...")
-        from src import firstPerson
-        self.landwalker = firstPerson.firstPerson(self.win, self.camera)
+        from src import FirstPerson
+        self.landwalker = FirstPerson.firstPerson(self.win, self.camera)
         #self.landwalker.loadGame()
         self.cleanupButtons()
 
 
-    def loadCustomize(self):
-        print("Loading customize screen...")
-        from src.world import Customize
-        self.customize = Customize.Customize()
-        self.customize.loadScene()
-        self.cleanupButtons()
-
-    def loadArena(self):
-        print("Loading arena game...")
-        from src.world import GlobalArena
-        self.arena = GlobalArena.GlobalArena(self)
-        self.arena.load()
-        self.cleanupButtons()
-
-    def loadTest(self):
-        print("Testing the loading screen..")
-        from src.gamebase import GameStart
-        self.test = GameStart.GameStart(ShowBase)
-        #self.test.setup()
-        self.cleanupButtons()
 
 
     def NEWintroButtons(self):

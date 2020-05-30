@@ -2,9 +2,6 @@ from direct.gui import DirectGuiGlobals
 from direct.gui.DirectButton import DirectButton
 from direct.gui.OnscreenImage import OnscreenImage, TransparencyAttrib
 from direct.showbase.ShowBase import ShowBase, loadPrcFile, NodePath, PandaNode
-from src.battle import DirectCannon
-from src.gamebase import GameGlobals
-from src.world import GlobalArena
 
 if __debug__:
     loadPrcFile('../config/Config.prc')
@@ -13,18 +10,13 @@ class Studio(ShowBase):
     def __init__(self):
         ShowBase.__init__(self)
 
-        self.game = GlobalArena.GlobalArena(self)
         self.loadCamera()
-        self.game.showCrosshair()
 
-        self.loadBackground()
-        self.loadCannon()
+        self.loadWorld()
 
     def loadCamera(self):
-        # Setting up the camera...
-        # This is a weird implementation, but it works!
         self.camera = base.camera
-        self.secretCamera = loader.loadModel('phase_4/models/props/snowball.bam')
+        self.secretCamera = loader.loadModel('models/camera.bam')
         self.secretCamera.reparentTo(render)
         self.secretCamera.setPos(self.camera.getPos())
         #self.secretCamera.hide()
@@ -34,20 +26,20 @@ class Studio(ShowBase):
         # camera.setPosHprScale(100.17, -76.31, 13.11, 23.96, 356.82, 0.00, 1.00, 1.00, 1.00)
 
 
-    def loadBackground(self):
-        self.TestPlane = loader.loadModel("planetest.egg")
-        self.TestPlane.reparentTo(render)
-        self.tempHQ = loader.loadModel('phase_3.5/models/modules/hqTEST2-mod.egg')
-        self.tempHQ.reparentTo(render)
+    def loadWorld(self):
+        # Load the environment model.
+        self.room = loader.loadModel("room.egg")
+        # Reparent the model to render.
+        self.room.reparentTo(render)
+
+        self.desk = loader.loadModel("CompDesk.egg")
+        self.desk.reparentTo(render)
+
+        self.chair = loader.loadModel("deskChair.egg")
+        self.chair.reparentTo(render)
+        self.chair.place()
 
 
-    def loadCannon(self):
-        self.cannon = DirectCannon.DirectCannon(self)
-        self.cannon.load()
-        self.cannon.activateCannons()
-        self.cannon.enterLoad()
-
-        self.cannon.cannon.reparentTo(self.TestPlane)
 
 app = Studio()
 app.run()
